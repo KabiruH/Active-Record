@@ -14,6 +14,8 @@ gem 'puma', '~> 6.1'
 
 gem 'require_all', '~> 3.0'
 
+gem 'faker', "~> 2.18"
+
 group :development do
     gem "pry"
 end

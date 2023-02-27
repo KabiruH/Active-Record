@@ -1,9 +1,23 @@
-# User.create (name: "Blunt")
-# Review.create ()
-# Product
 
-User.create(name: "Blunt")
-Product.create(name: "Algebra")
-Review.create(user_id:1, product_id:1, rating:1, comment:"good one")
-Review.create(user_id:2, product_id:2, rating:5, comment:"good one")
-Review.create(user_id:3, product_id:3, rating:4, comment:"good one")
+puts "review start"
+10.times do
+    User.create!(
+      name: Faker::Name.name
+    )
+end
+
+10.times do
+    Product.create!(
+      name: Faker::Commerce.product_name,
+    
+    )
+end
+10.times do
+    Review.create!(
+      comment: Faker::Lorem.paragraph,
+      rating: Faker::Number.between(from: 1, to: 5),
+      product_id: Faker::Number.between(from: 1, to: 10),
+      user_id: Faker::Number.between(from: 1, to: 10)
+    )
+  end
+ puts "reviews ends"
