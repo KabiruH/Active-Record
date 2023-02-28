@@ -9,14 +9,19 @@ class Product < ActiveRecord::Base
 
     def print_all_reviews
         reviews.map do |review|
-            puts "Review for #{product.name} by #{user.name}: #{self.rating}. #{self.comment}"
+            puts "Review for #{name} by #{review.user.name}: #{review.rating}. #{review.comment}"
         end
     end
 
     def average_rating
-        reviews.map do |review|
-                review.average (:rating).to_f
-        end
+        sum = 0.0
+        count = 0
+        reviews.each do |review|
+           sum += review.rating
+           count += 1
+         end
+        (sum / count).to_f
+        
     end
 
 end
